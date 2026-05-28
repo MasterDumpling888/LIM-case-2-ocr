@@ -62,15 +62,16 @@ This will provide a local URL (e.g., `http://127.0.0.1:7860`).
 
 TADA!
 
-## Replicating the Pipeline
+## Replicating the Benchmark
 
-If you want to run the full benchmark suite against the SROIE dataset ground truth, follow these steps:
+To evaluate the performance of all 4 pipelines against the ground truth (or to enable the "Ground Truth Comparison" feature in the UI):
 
 ### 1. Data
 
 - **SROIE V2 Dataset:**
-  1. Ensure the dataset is present in the `data/SROIE2019/` directory (might need to make a `data` directory).
+  1. Download the dataset and ensure it is present in the `data/SROIE2019/` directory.
   2. The partitions should be organized into `train/` and `test/` folders, each containing `img/`, `box/`, and `entities/` subdirectories.
+  3. **Note:** If this folder is missing, the application will still run, but you will not be able to perform automated benchmarking or see side-by-side ground truth comparisons.
 
 ### 2. Running the Benchmark
 
