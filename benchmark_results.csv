@@ -1,0 +1,5 @@
+Pipeline,Precision,Recall,F1 Score,Avg Entities Extracted
+Raw OCR,0.2500,0.2500,0.2500,4.00
+Multimodal LLM,0.7500,0.7500,0.7500,4.00
+OCR + Entity LLM,0.6250,0.6250,0.6250,4.00
+Full Hybrid,0.7500,0.7500,0.7500,4.00

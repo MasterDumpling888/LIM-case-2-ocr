@@ -1,0 +1,13 @@
+paddleocr
+paddlepaddle
+paddlex
+langchain==0.3.15
+langchain-community==0.3.15
+langchain-groq
+langchain-core
+pandas
+opencv-python
+gradio
+scikit-learn
+python-dotenv
+tqdm
