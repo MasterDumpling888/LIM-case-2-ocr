@@ -9,7 +9,9 @@ class SROIEDataset:
         self.entities_dir = os.path.join(root_dir, 'entities')
         self.box_dir = os.path.join(root_dir, 'box')
         
-        self.filenames = [os.path.splitext(f)[0] for f in os.listdir(self.img_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
+        self.filenames = []
+        if os.path.exists(self.img_dir):
+            self.filenames = [os.path.splitext(f)[0] for f in os.listdir(self.img_dir) if f.endswith(('.jpg', '.png', '.jpeg'))]
         
     def __len__(self):
         return len(self.filenames)
