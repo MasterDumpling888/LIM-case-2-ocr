@@ -18,13 +18,17 @@ pipelines = {
     "Full Hybrid": FullHybridPipeline(ocr_engine, llm_manager)
 }
 
-# Pre-load dataset mapping for ground truth lookup
+# Pre-load dataset mapping for ground truth lookup (optional)
 dataset_mapping = {}
 for split in ["train", "test"]:
-    ds = SROIEDataset(f"data/SROIE2019/{split}")
-    for i in range(len(ds)):
-        example = ds.get_example(i)
-        dataset_mapping[os.path.basename(example["img_path"])] = example["entities"]
+    ds_path = f"data/SROIE2019/{split}"
+    if os.path.exists(ds_path):
+        ds = SROIEDataset(ds_path)
+        for i in range(len(ds)):
+            example = ds.get_example(i)
+            dataset_mapping[os.path.basename(example["img_path"])] = example["entities"]
+    else:
+        print(f"Warning: Dataset path {ds_path} not found. Skipping ground truth pre-loading.")
 
 def process_receipt(image, pipeline_name):
     if image is None:
