@@ -21,8 +21,16 @@ def run_benchmark(limit=None):
     }
     
     # Load dataset (combined train and test)
-    train_dataset = SROIEDataset("data/SROIE2019/train")
-    test_dataset = SROIEDataset("data/SROIE2019/test")
+    train_path = "data/SROIE2019/train"
+    test_path = "data/SROIE2019/test"
+    
+    if not os.path.exists(train_path) or not os.path.exists(test_path):
+        print(f"Error: Dataset not found in 'data/SROIE2019/'.")
+        print("Please ensure you have downloaded the SROIE V2 dataset and placed it in the data/ directory.")
+        return
+
+    train_dataset = SROIEDataset(train_path)
+    test_dataset = SROIEDataset(test_path)
     
     all_examples = []
     # Combined dataset list
